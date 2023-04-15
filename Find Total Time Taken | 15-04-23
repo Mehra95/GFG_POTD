@@ -1,0 +1,20 @@
+
+//Problem solved using set
+class Solution {
+  public:
+    int totalTime(int n, vector<int> &arr, vector<int> &time) {
+        set<int>st;
+        st.insert(arr[0]);
+        int total_time=0;
+        for(int i=1;i<=n-1;i++){
+            if(st.find(arr[i])!=st.end()){
+                total_time+=time[arr[i]-1];
+            }
+            else{
+                total_time++;
+                st.insert(arr[i]);
+            }
+        }
+        return total_time;
+    }
+};
